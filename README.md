@@ -144,7 +144,7 @@ $$M_{i,j} = \begin{cases} 0 & \text{if } i \geq j \\ -\infty & \text{if } i < j 
 
 ### 2. SwimVG 复现与高效微调研究 (Week 12-14)
 
-**项目简介**：SwimVG 是一个多模态视觉理解模型，在视觉定位（Visual Grounding）任务上取得了当时的最优成绩。我选择复现这一工作，从而深入理解多模态架构与参数高效微调的实践。[链接显示的文字](SwimVG Step-wise Multimodal Fusion and.pdf)
+**项目简介**：SwimVG 是一个多模态视觉理解模型，在视觉定位（Visual Grounding）任务上取得了当时的最优成绩。我选择复现这一工作，从而深入理解多模态架构与参数高效微调的实践[![查看SwimVG]](https://arxiv.org/pdf/2502.16786?)
 
 **架构理解**：SwimVG 的创新之处在于冻结了 CLIP 的文本编码器和 DINOv2 的视觉编码器，仅对两个模态之间的交互部分进行训练。这种设计利用了两个预训练模型的强大特征提取能力，同时最小化了训练成本。
 
