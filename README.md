@@ -103,7 +103,7 @@ def rnn_backward(d_next, hidden_state, W_hh, prev_hidden):
 
 **项目背景**：在完成课程作业时，我详细研读了相关学术论文关于模型应用策略（Mask Application Strategy, MAS）的内容。该论文提出了一种用于微调预训练 GPT 模型的掩码应用方法。
 
-**核心发现**：在阅读过程中，我发现原论文对因果掩码的定义存在严重的数学错误，这会导致模型的自回归属性被破坏。
+**核心发现**：在阅读过程中，我发现原论文对因果掩码的定义存在严重的数学错误，这会导致模型的自回归属性被破坏。[查看Segment-Based Attention Masking for GPTs](https://aclanthology.org/2025.acl-long.947.pdf))
 
 **错误来源**：原论文（第 13 式）定义因果掩码为：
 
@@ -144,7 +144,7 @@ $$M_{i,j} = \begin{cases} 0 & \text{if } i \geq j \\ -\infty & \text{if } i < j 
 
 ### 2. SwimVG 复现与高效微调研究 (Week 12-14)
 
-**项目简介**：SwimVG 是一个多模态视觉理解模型，在视觉定位（Visual Grounding）任务上取得了当时的最优成绩。我选择复现这一工作，从而深入理解多模态架构与参数高效微调的实践[![查看SwimVG]](https://arxiv.org/pdf/2502.16786?)
+**项目简介**：SwimVG 是一个多模态视觉理解模型，在视觉定位（Visual Grounding）任务上取得了当时的最优成绩。我选择复现这一工作，从而深入理解多模态架构与参数高效微调的实践。[[查看SwimVG]](https://arxiv.org/pdf/2502.16786?)
 
 **架构理解**：SwimVG 的创新之处在于冻结了 CLIP 的文本编码器和 DINOv2 的视觉编码器，仅对两个模态之间的交互部分进行训练。这种设计利用了两个预训练模型的强大特征提取能力，同时最小化了训练成本。
 
