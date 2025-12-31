@@ -81,7 +81,7 @@ def rnn_backward(d_next, hidden_state, W_hh, prev_hidden):
     return d_Whh, d_hidden
 ```
 
-**[证据占位符 A - RNN 梯度消失实证]** 下图为纯 NumPy 实现的反向传播中，梯度范数随时间步的衰减曲线：
+**![RNN 梯度消失可视化](photos/vanishing_gradient_evidence.png)** 下图为纯 NumPy 实现的反向传播中，梯度范数随时间步的衰减曲线：
 
 这个图表完美验证了我的理论推导。梯度在时间步 t=0 时达到 1e11 的量级，但在通过 50 个时间步的反向传播后，衰减至接近 0。这正是**梯度消失（Vanishing Gradient）** 现象的直观体现——每次乘以激活函数导数（< 1 的数值），梯度呈指数级衰减。这个实验充分说明了为什么原始 RNN 在长序列任务上失效，也解释了 LSTM（带门控机制）和 Transformer（带残差连接）为何能改善这一问题。
 
