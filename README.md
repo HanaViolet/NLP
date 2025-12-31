@@ -144,7 +144,7 @@ def rnn_backward(d_next, hidden_state, W_hh, prev_hidden):
 
 **复现成果**：成功复现了 SwimVG 的核心模块，尤其是"逐步多模态对齐"（Step-wise Multimodal Alignment）策略，观察到模型确实能更好地捕捉视觉与语言信息的交互。这个实验深刻展示了课程中讲述的**参数高效微调**不仅要减少参数，还要设计任务相关的结构化适配器。
 
-**[证据占位符 B]** — 在此处可插入 SwimVG 模型在自有数据集上的训练指标、准确率对比图表、损失曲线或模型可视化结果
+![SwimVG 训练指标](photos/train_metrics.png)
 
 ---
 
@@ -204,7 +204,7 @@ print(f"Computed Params: {total_params/1e6:.2f}M")
 # Expected Output: ~10.65M
 ```
 
-**[证据占位符 C]** — 在此处可插入 nanoGPT 训练日志截图，显示"number of parameters: 10.65M"的输出信息
+![nanoGPT参数](photos/para.png)
 
 ### 3. 工程化挑战与问题解决 (范式理解)
 
@@ -214,7 +214,7 @@ print(f"Computed Params: {total_params/1e6:.2f}M")
 
 **实际训练成果**：成功训练了一个可生成莎士比亚风格文本的语言模型。虽然生成的文本在语法上不完美，但模型确实学到了角色对话的结构、押韵模式等高层特征。
 
-**[证据占位符 D]** — 在此处可插入 nanoGPT 的训练损失曲线，展示从初始 Loss ~4.28 逐步收敛到 ~0.87 的过程（超过 5000 个迭代步）
+![curve](photos/loss_curve.png)
 
 **范式转移的深刻理解**：通过观察模型的生成过程，我深刻理解了课程中提到的从**判别式模型（Discriminative）**到**生成式模型（Generative）**的范式转移。模型并非"理解"或"记忆"莎士比亚的内容，而是通过最大化似然函数，精准建模了字符序列间的条件概率分布 P(w_t | w_1, ..., w_{t-1})。这种概率视角是深度学习语言模型的根本。
 
