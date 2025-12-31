@@ -84,7 +84,7 @@ def rnn_backward(d_next, hidden_state, W_hh, prev_hidden):
     return d_Whh, d_hidden
 ```
 
-**[证据占位符 A]** — 在此处可插入 RNN 反向传播的运行测试结果或梯度消失的可视化图表
+![RNN 梯度消失可视化](photos/vanishing_gradient_evidence.png)
 
 ### 2. Seq2Seq 与 Attention 机制的突破 (Week 8-9)
 
